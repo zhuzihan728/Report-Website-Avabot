@@ -512,7 +512,7 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 ================================================
 */
 #dvLoading {
-	background: url(../images/loader.gif) no-repeat center center #fff;
+	background: url(../images/loader.gif) no-repeat center/35% #fff;
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -585,12 +585,13 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 .main-header .header-top .top-left {
 	position: relative;
 	float: left;
-	padding: 20px 0px;
+	padding: 20px 25px;
 }
 .main-header .header-top .top-left .text {
 	position: relative;
-	color: #ffffff;
+	color: #4f4131;
 	font-size: 16px;
+	font-family:'themify';
 }
 /* Top Right*/
 
@@ -648,7 +649,7 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 }
 .main-header .header-top .top-right .social-icons li a {
 	position: relative;
-	color: #ffffff;
+	color: #4f4131;
 	font-size: 14px;
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
@@ -673,7 +674,8 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 .main-header .header-upper .inner-container {
 	position: relative;
 	padding-left: 25px;
-	background-color: #ffffff;
+	padding-top: -20px;
+	background-color: #ffffffff;
 }
 .main-header.fixed-header .header-upper .inner-container {
 	padding-left: 0px;
@@ -692,6 +694,7 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 }
 .main-header .header-upper .logo-outer {
 	position: relative;
+	top: -8px;
 	float: left;
 	z-index: 25;
 	padding: 0px 0px;
@@ -768,11 +771,11 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 	text-align: center;
 	font-size: 16px;
 	line-height: 35px;
-	font-weight: 600;
+	font-weight: 500;
 	opacity: 1;
 	color: #222222;
 	padding: 0px;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
@@ -835,9 +838,9 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 	display: block;
 	padding: 10px 25px;
 	line-height: 24px;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 14px;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	color: #222;
 	transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
@@ -1576,6 +1579,11 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 7. Main Slider
 ================================================
 */
+.hero_section {
+    position: relative;
+    padding-top: 200px;
+}
+
 .main-slider {
 	position: relative;
 	overflow: hidden;

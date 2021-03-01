@@ -148,7 +148,7 @@ p {
 }
 
 .navStyle ul li:first-child {
-	/*margin:0px;*/;
+	/*margin:0px;*/
 }
 
 .navStyle ul li:last-child {
@@ -401,7 +401,7 @@ a.read_more2:hover {
 }
 
 .service-list-col1 i {
-    display:;
+    display:none;
     color: #888;
     font-size: 19px;
     font-style: normal;
@@ -1662,7 +1662,7 @@ margin: 0 18px;
 .page_section.team{
 padding: 40px 0;
 }
-, #clients {
+#clients {
 padding: 40px 0;
 }
 .client_logos ul li {
@@ -1707,10 +1707,9 @@ margin: 0px;
 .navbar-inverse .navbar-nav > li > a {
 color: #222;
 background: #F9F9F9;
-}
 } 
 @media (max-width: 480px){ 
 .team_area {
 width: 99%;
 }
-}
+}}
