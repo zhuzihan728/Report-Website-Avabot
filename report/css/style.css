@@ -74,6 +74,12 @@ button {
 	outline: none !important;
 	cursor: pointer;
 }
+
+iframe{
+	margin:0 auto;
+	display:block;
+}
+
 a {
 	color: #2d2e2e;
 	transition: all 0.3s ease 0s;
@@ -1632,25 +1638,27 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
     position: relative;
 	top: 150px; 
 	height: 410px;
-	padding-top: 6%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .hero_section {
     position: relative;
-    padding: 20px;
+	margin-top: -50px;
 }
 
-.white_pad {
+.white_pad { 
     position: relative;
+	margin-top: 20px;
 }
 
 .white_pad img {
-    position: relative;
-	right:-1%
+    position: absolute;
+	right: -150px;
 }
 
 .top_left_cont {
-    padding: 10px 0px;
+    padding: 110px 0;
 }
 
 
@@ -1893,12 +1901,66 @@ a.read_more2:hover {
 }
 /*
 ================================================
-8. Features Sec
+8. Abstract Sec
 ================================================
 */
-.features-sec {
-	margin: 150px 0 80px;
+.abstract-sec {
+	margin: 250px 0 0px;
+	z-index: 99;
 }
+
+.abstract-sec .sec-title {
+	text-align: center;
+	margin: 0 -80px;
+}
+.abstract-sec .sec-title h2::before {
+	content: '';
+	border: 1px solid #8400fc;
+	width: 25px;
+	position: absolute;
+	left: -40px;
+	top: 19px;
+}
+.abstract-sec .sec-title h2 span::before {
+	content: '';
+	border: 1px solid #8400fc;
+	width: 25px;
+	position: absolute;
+	right: -40px;
+	top: 19px;
+}
+.abstract-sec .sec-title h2 {
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	display: inline-block;
+	padding-bottom: 25px;
+	font-family: 'Raleway';
+}
+.abstract-sec .sec-title h2 span::after {
+	content: '';
+	border: 1px solid #8400fc;
+	height: 20px;
+	position: absolute;
+	right: -15px;
+	top: 10px;
+}
+.abstract-sec .sec-title h2::after {
+	content: '';
+	border: 1px solid #8400fc;
+	height: 20px;
+	position: absolute;
+	left: -15px;
+	top: 10px;
+}
+.abstract-sec .sec-title p {
+	font-size: medium;
+	text-align: start;
+	font-family: 'Raleway';
+}
+
 /** Single Features Sec **/
 .single-features-sec {
 	background: #fafafa;
@@ -1956,6 +2018,7 @@ a.read_more2:hover {
 ================================================
 */
 .about-sec {
+	top:-80px;
 	padding: 0 0 380px;
 	position: relative;
 }
@@ -2119,6 +2182,7 @@ a.read_more2:hover {
 ================================================
 */
 .fun-facts-area {
+	top:-100px;
 	padding-top: 20px;
 	padding-bottom: 0;
 	background-color: #f8f8f8;
@@ -2135,13 +2199,20 @@ a.read_more2:hover {
 	display: none;
 }
 .fun-facts-area .col-lg-3:last-child .single-fun-fact {
-	border-right: none;
+	border: none;
+}
+.fun-facts-area .col-lg-3:first-child .single-fun-fact {
+	border: none;
 }
 .single-fun-fact {
+	margin-left:170px;
+	margin-right:170px;
+	width: 300px;
 	text-align: center;
 	position: relative;
 	margin-bottom: 50px;
 	border-right: 1px dashed #b5b8cc;
+	border-left: 1px dashed #b5b8cc;
 }
 .single-fun-fact h3 {
 	position: relative;
@@ -2183,11 +2254,30 @@ a.read_more2:hover {
 ================================================
 */
 .services-sec {
+	top: -100px;
 	padding: 0 0 100px;
 }
 .services-sec .sec-title {
 	margin: 0;
 }
+
+.services-sec .sec-title h2 {
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	display: inline-block;
+	padding-bottom: 25px;
+	font-family: 'Raleway';
+}
+
+.services-sec .sec-title p {
+	font-size: medium;
+	text-align: center;
+	font-family: 'Raleway';
+}
+
 .services-sec.inner-content-wrapper {
 	padding: 40px 0 80px;
 }
@@ -2201,8 +2291,9 @@ a.read_more2:hover {
 	background: url(../images/single-service-shape.svg) left bottom no-repeat;
 }
 .single-service-item h4 {
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 1.3rem;
+	line-height: 40px;
 }
 .single-service-item:hover {
 	-webkit-transform: scale(1.1, 1.1);
@@ -2230,7 +2321,11 @@ a.read_more2:hover {
 	border-color: #329ef6;
 }
 .single-service-item p {
+	min-height: 120px;
 	margin: 0 0 15px;
+	font-family: 'Raleway';
+	text-align: center;
+	font-size: small;
 }
 .single-service-item .service-item-text-holder a {
 	color: #329ef6;
@@ -2738,6 +2833,7 @@ span.dolar {
 ================================================
 */
 .testimonials-sec {
+	top: -50px;
 	padding: 80px 0;
 	background: -moz-linear-gradient(-45deg, #8400fc 0%, #11def4 100%);
 	background: -webkit-linear-gradient(-45deg, #8400fc 0%, #11def4 100%);
@@ -2749,12 +2845,19 @@ span.dolar {
 }
 .testimonials-sec .sec-title h2 {
 	color: #fff;
+	font-size: 32px;
+	font-weight: 500;
+	font-family: 'Raleway';
 }
+
 .testimonials-sec .sec-title h2:after, .testimonials-sec .sec-title h2 span:after {
 	border: 1px solid #fff;
 }
 .testimonials-sec .sec-title p {
 	color: #fff;
+	font-size: medium;
+	text-align: center;
+	font-family: 'Raleway';
 }
 /** Testimonial Sec **/
 .testimonial-wraper {
@@ -2835,6 +2938,21 @@ span.dolar {
 .our-team-sec .sec-title {
 	margin: 0;
 }
+.our-team-sec .sec-title h2 {
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	display: inline-block;
+	padding-bottom: 25px;
+	font-family: 'Raleway';
+}
+.our-team-sec .sec-title p {
+	font-size: medium;
+	text-align: center;
+	font-family: 'Raleway';
+}
 /** Single Team Sec **/
 .our-team {
 	background: #fff;
@@ -2862,11 +2980,13 @@ span.dolar {
 .our-team h4 {
 	font-size: 25px;
 	margin: 0 0 10px;
+	font-family: 'Raleway';
 }
 .our-team h4 > a {
 	color: #353b4a;
 	font-size: 22px;
 	font-weight: 700;
+	font-family: 'Raleway';
 }
 .our-team .designation {
 	color: #fff;
@@ -2874,10 +2994,12 @@ span.dolar {
 	border-radius: 2px;
 	font-size: 13px;
 	background: #ff5d01;
+	font-family: 'Raleway';
 }
 .our-team p {
 	margin: 25px 0;
 	line-height: 1.8;
+	font-family: 'Raleway';
 }
 ul.our-team-profile {
 	padding: 0;
@@ -2907,6 +3029,21 @@ ul.our-team-profile li a {
 .quotation-sec {
 	padding: 140px 0 160px;
 	background-color: #ebf5ff;
+}
+.quotation-sec .sec-title h2 {
+	font-size: 32px;
+	color: #000000;
+	font-weight: 500;
+	position: relative;
+	text-transform: capitalize;
+	display: inline-block;
+	padding-bottom: 25px;
+	font-family: 'Raleway';
+}
+.quotation-sec .sec-title p {
+	font-size: medium;
+	text-align: center;
+	font-family: 'Raleway';
 }
 .shape_wrap [class*="shape"] {
 	position: absolute;
