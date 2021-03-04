@@ -189,6 +189,12 @@ $(function() {
 
 });
 
+$('.image-popup').magnificPopup({
+	closeBtnInside : true,
+	type           : 'image',
+	mainClass      : 'mfp-with-zoom'
+});
+
 
 /*------------------------------------------------------------------
  Loader 
