@@ -3746,18 +3746,20 @@ ul.our-team-profile li a {
   opacity: 0.9;
   z-index: -1;
   content: "";
-  background: -moz-linear-gradient(-45deg, #8400fc 0%, #11def4 100%);
-  background: -webkit-linear-gradient(-45deg, #8400fc 0%, #11def4 100%);
-  background: linear-gradient(135deg, #8400fc 0%, #11def4 100%);
+  background: -moz-linear-gradient(-45deg, #fc8600 0%, #3311f4 100%);
+  background: -webkit-linear-gradient(-45deg,#fc8600 0%, #3311f4 100%);
+  background: linear-gradient(135deg, #fc8600 0%, #3311f4 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8400fc', endColorstr='#11def4', GradientType=1 );
 }
 .page-title-area {
-  background: url(../images/breadcrumbs-bg.jpg) left top no-repeat;
-  padding-top: 240px;
-  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  margin-bottom: 150px;
   text-align: center;
   position: relative;
   z-index: 9;
+  top: 150px;
+  height: 200px;
 }
 .page-title-area .page-title-content {
   position: relative;
