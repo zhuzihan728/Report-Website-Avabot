@@ -5083,7 +5083,7 @@ mark,
   margin-right: 0.125em;
 }
 .link-hover {
-  color: #3375ec;
+  color: #4a39a5;
 }
 .list-marked {
   font-size: 16px;
@@ -5268,7 +5268,11 @@ mark,
   border-radius: 5px;
   border: 1px solid #deebfd;
   margin-bottom: 1.3rem;
+  margin-top: 10px;
   box-shadow: -8px 12px 18px 0 #dadee8;
+}
+.tab-content .techtable {
+  margin-top: 20px;
 }
 .table-sec .card-title {
   font-weight: 700;
@@ -5302,6 +5306,7 @@ mark,
   border-bottom-width: 1px;
   border-top-width: 0;
   padding: 0 15px 5px;
+  font-family: "Poppins";
 }
 .table thead th {
   vertical-align: bottom;
@@ -5314,6 +5319,14 @@ mark,
 }
 .table-striped tbody tr:nth-of-type(2n + 1) {
   background-color: #ecf0fa;
+}
+.table tr * {
+  font-weight: 400;
+  font-family: "Poppins";
+}
+.table tr th {
+  font-weight: 500;
+  
 }
 /*
 ================================================
@@ -6077,12 +6090,12 @@ footer .widget_title {
     margin-left: 50px;
   }
   .tabs-vertical.tabs-line .nav-tabs {
-    width: 370px;
-    min-width: 370px;
+    width: 150px;
+    min-width: 150px;
     border-bottom: 0;
   }
   .tabs-vertical.tabs-line .nav-tabs-outer {
-    width: 370px;
+    width: 150px;
     border-bottom: 0;
   }
   .tabs-vertical.tabs-line .nav-tabs-outer .nav-tabs {
@@ -6092,6 +6105,49 @@ footer .widget_title {
     padding: 15px 2px;
   }
 }
+.node p img {
+  margin:0 0 0 15px;
+}
+
+.node p {
+  text-align: justify;
+}
+
+.python p img {
+  margin: 5px 15px 5px 0;
+}
+
+.bot p img {
+  margin-right: 10px;
+}
+
+.textrank p img {
+  display: block;
+  align-content: center;
+  margin-top: 10px;
+}
+
+.python p {
+  text-align:justify;
+}
+
+.python h5 {
+  text-align: right;
+}
+
+.tab-content h5 {
+  width: auto;
+	font-size: 23px;
+	background-image: 
+	-webkit-gradient( linear, left top, right top, color-stop(0, #ee860f), 
+	color-stop(0.1, #584aa5));
+	color: transparent;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-ms-background-clip: text;
+
+}
+
 
 @media (min-width: 768px) and (max-width: 991px) {
   /** Main Header **/
