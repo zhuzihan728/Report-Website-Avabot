@@ -105,7 +105,7 @@
                       <li class="dropdown">
                         <a
                           href="javascript:void(0)"
-                          onclick="window.open('require.html','_self')"
+                          onclick="window.open('forms.html','_self')"
                           >Requirements</a
                         >
                         <ul>
@@ -215,11 +215,11 @@
       <div class="page-title-area">
         <div class="container">
           <div class="page-title-content">
-            <h2>RESEARCH</h2>
+            <h2>SYSTEM DESIGN</h2>
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><i class="ti-angle-right"></i></li>
-              <li>Research</li>
+              <li>System design</li>
             </ul>
           </div>
         </div>
@@ -230,257 +230,47 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-10">
-              <h4 class="mb-4">Project Research</h4>
+              <h4 class="mb-4">System Architecture</h4>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <h5>General Chatbot</h5>
+                <div class="tab-content system-diagram">
                   <p>
-                    Chatbot applications haven been widely utilized in various
-                    areas, serving for either business, commercial, political or
-                    entertaining purposes.There are numerous successful
-                    predecessors developed by well-known companies, from Google
-                    Now, Apple’s Siri to Microsoft’s Cortana, where we can learn
-                    plenty of design ideas and technical solutions. <br />
-                    Having had a research on some existing ChatBots, we evaluate
-                    a good chatbot by the following features:
+                    AvaBot application system consists of several components.
+                    Users can interact with AvaBot on web-chat and multiple
+                    applications to which it channels. The bot source code is
+                    deployed to Azure Cloud by using Azure Bot Service. AvaBot
+                    is connected to a QnA Maker with rich knowledge base that
+                    allows it to answer a variety of questions. Document
+                    processing functionalities are integrated to AvaBot by APIs,
+                    which can be accessed by performing http requests. Due to
+                    the high complexity and dependency on environment, QA system
+                    has been placed to a virtual machine in order to optimize
+                    its performance.
                   </p>
-                  <div class="list-content">
-                    <ul class="list-marked">
-                      <li>Precise perception of users’ needs</li>
-                      <li>Prompt and correct feedbacks to users' needs</li>
-                      <li>Friendly UI and dialogue design</li>
-                    </ul>
-                  </div>
-                  <p>
-                    <br />
-                    There are two main categories of ChatBots, one is rule-based
-                    chatbot, also known as decision-tree bot, the other is
-                    AI-based chatbot, we chose to make AvaBot rule-based
-                    regarding its task-oriented property and the time limitation
-                    of our development. However, we also referred to the idea of
-                    AI-based chatbots so that AvaBot is able to understand
-                    intents and entities of a question serving for its
-                    question-answering feature.<br /><br />
-                  </p>
-                  <h5>Document Processing Bot</h5>
-                  <p>
-                    AvaBot’s functionalities lay largely on document processing,
-                    we accordingly conducted a research over existing document
-                    processing bots on the market. Currently, only a small
-                    number of bots are supporting this feature, where the
-                    maturest one is <a class="link-hover" href="https://www.automationanywhere.com/products/iq-bot" target="_blank">IQ Bot</a> by RPA which aims to automatically
-                    classify, extract and validate information from business
-                    documents and emails.
-                  </p>
-                  <p>
-                    IQ Bot is powered by computer vision, natural language
-                    processing and machine learning according to its website,
-                    which are mature and sophisticated AI technologies that we
-                    could adopt from, however, the bot’s usability is
-                    constrained by its strict prerequisites and use cost,
-                    specifically, users have to pre-download plug-ins to run the
-                    bot and will be asked to create learning instances
-                    themselves, which is highly unfriendly to the
-                    non-professionals and those with little ML knowledge. Those
-                    were the weak points where AvaBot could surpass it.
-                  </p>
+                  <a href="images/system.png" class="image-popup">
+                    <div class="gallery-image">
+                      <img src="images/system.png" />
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-xl-10">
-              <h4 class="mb-4">Technology Research</h4>
-              <!-- Bootstrap tabs-->
-              <div class="tabs-custom tabs-vertical tabs-line" id="tabs-2">
-                <!-- Nav tabs-->
-                <ul class="nav nav-tabs">
-                  <li class="nav-item" role="presentation">
-                    <a
-                      class="nav-link active"
-                      href="#tabs-2-1"
-                      data-toggle="tab"
-                      ><span>Development Tools</span></a
-                    >
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#tabs-2-2" data-toggle="tab"
-                      ><span>Languages</span></a
-                    >
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#tabs-2-3" data-toggle="tab"
-                      ><span>Algorithms</span></a
-                    >
-                  </li>
-                </ul>
-                <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-2-1">
-                    <div class="bot">
-                      <h5>Framework</h5>
-                      <p>
-                        <img src="images/msbot.png" align="right" width="15%" />
-                        We started the development of AvaBot by researching
-                        through some of the best bot development frameworks
-                        including <a class="link-hover" href="https://dev.botframework.com/" target="_blank">MS Bot Framework</a> by Microsoft, <a class="link-hover" href="https://www.ibm.com/watson/how-to-build-a-chatbot" target="_blank">IBM Watson Conversation</a> by IBM and <a class="link-hover" href="https://aws.amazon.com/lex/" target="_blank">Amazon Lex</a> by Amazon. After
-                        deliberate considerations of their pros and cons, we
-                        decided to choose MS Bot Framework as our main
-                        development tool.<br />
-                        MS Bot Framework has its unique advantages in the
-                        following aspects:
-                      </p>
-                      <div class="list-content">
-                        <ul class="list-marked">
-                          <li>
-                            Easy to host:<br />it is supported by Azure Bot
-                            Service, which provides serverless compute resources
-                            to host bots.
-                          </li>
-                          <li>
-                            Powerful APIs:<br />alongside the framework itself,
-                            Microsoft has an impressive 22 machine learning APIs
-                            that can be utilized for natural language processing
-                            and useful tools, in particular, the QnA maker tool
-                            which would allow us to easily establish a
-                            question-answer pair database (knowledge base).
-                          </li>
-                          <li>
-                            Multi-channels:<br />the Microsoft Bot Framework
-                            connects to various social conversation channels
-                            such as MS Teams, Twitter, and Skype and can run on
-                            website and custom apps.
-                          </li>
-                          <li>
-                            Developer-friendly:<br />
-                            it has SDKs of multiple programming languages, where
-                            C#and Node.js are the most mature ones. The SDKs are
-                            well-documented and there are a variety of samples
-                            provided.
-                          </li>
-                          <li>
-                            Cost-effective:<br />
-                            Avanade provided with us budget for using azure
-                            resources. There is also azure student credits.
-                          </li>
-                        </ul>
-                      </div>
-                      <p>
-                        <br />
-                        Compared to IBM Bot Framework, which is cost-consuming
-                        and lack of guidance to novice developers, and Amazon
-                        Lex, which has the limitations in terms of few channels
-                        and high dependency and demand for preparation of
-                        dataset, MS Bot Framework became our ultimate solution
-                        out of its superior usability, sustainability and
-                        extensibility.<br /><br />
-                      </p>
-                      <h5>API</h5>
-                      <p>
-                        To guarantee the accuracy of image recognition, we
-                        utilized the Azure <a class="link-hover" href="https://azure.microsoft.com/en-us/services/cognitive-services/form-recognizer/" target="_blank">Form Recognizer</a> API, which helps in
-                        extraction of text, key/value pairs, and tables from
-                        types of documents. <br />There are 3 companies
-                        (Microsoft - Azure, Google - GCP, Amazon - AWS) that
-                        provide such service, where Azure Form Recognizer is of
-                        the best accuracy, since it has the possibility to find
-                        the bounding box (cells’ or words’ coordinates) using
-                        <a class="link-hover" href="https://www.efilecabinet.com/how-does-ocr-work/#:~:text=OCR%20is%20a%20tool%20to,or%20other%20symbols%20it%20is" target="_blank">OCR</a> and analyses the fastest (3s per 5), compared to GCP
-                        (1h14min per 10) and AWS (52min per 5) (<a class="link-hover" href="https://cazton.com/blogs/executive/form-recognition-azure-aws-gcp" target="_blank">Cazton, 2021</a>).<br /><br />
-                      </p>
-                      <h6>Next: Languages</h6>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-2-2">
-                    <div class="node">
-                      <h5>Node.js</h5>
-                      <p>
-                        <img src="images/node.png" align="right" width="30%" />
-                        We use node.js for the development of main bot
-                        structure. The reason is that node.js not only inherits
-                        all the advantages that Javascript has, i,e, better
-                        efficiency, good code performance and rich free tools,
-                        but is also awesome at Non-blocking Input/Output and
-                        asynchronous request handling, which is extremely useful
-                        when developing real-time, multi-user applications as
-                        ChatBots. This also makes node.js natively suited to
-                        making calls to external APIs with the help of libraries
-                        like Axios, which would allow us to integrate functions
-                        written in other languages easily to AvaBot.<br /><br />
-                      </p>
-                    </div>
-                    <div class="python">
-                      <h5>Python</h5>
-                      <p>
-                        <img src="images/python.png" align="left" width="30%" />
-                        When it comes to natural language processing as required
-                        feature for AvaBot, there is no better choice than
-                        python. we chose to use python for the explore of
-                        solutions for document processing as it is flexible,
-                        usable, and of tons of powerful third-party libraries
-                        that can be utilized for NLP, for example, Natural
-                        language toolkit (NLTK) is the most popular library for
-                        natural language processing (NLP) which was written in
-                        Python and has a big community behind it, which comes
-                        with many corpora, toy grammars, trained models, etc.
-                        The document processing features inhabited by AvaBot are
-                        mostly achieved by functions written in python and
-                        integrated to it by RESTful APIs. <br /><br />
-                      </p>
-                    </div>
-                    <h6>Next: Algorithms</h6>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-2-3">
-                    <div class="textrank">
-                      <h5>Text-Summary Methodology</h5>
-                      <p>
-                        AvaBot is able to give what a document is about by
-                        summarizing it, it is therefore critical that we choose
-                        the right text-summarization method to yield reliable
-                        results.
-                      </p>
-                      <p>
-                        In general, we applied extractive summarization instead
-                        of risking for abstractive summarization for the reason
-                        that current abstractive summarizing algorithm are less
-                        stable and of high demand of training, time and
-                        computational power, where Google’s open-source
-                        abstractive text summarization architecture, Textsum,
-                        requires training for over million time-steps to
-                        successfully reproduce the reported result (<a class="link-hover" href="https://rare-technologies.com/text-summarization-in-python-extractive-vs-abstractive-techniques-revisited/" target="_blank">Pranay, Aman and Aayush</a>, 2017), compared to
-                        which extractive summarization is more reliable,
-                        efficient and of the advantages it respects and reflects
-                        more honestly the original documents.
-                      </p>
-                      <p>
-                        Out of the well-established extractive text
-                        summarization algorithms, we turned to <a class="link-hover" href="https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf" target="_blank">TextRank</a>
-                        Algorithm, which produced better outcomes compared to
-                        other methods when tested on <a class="link-hover" href="http://multiling.iit.demokritos.gr/pages/view/1540/task-mms-multi-document-summarization-data-and-information" target="_blank">MultiLing2015 training
-                        corpus</a>. <br /><img src="images/rank.png" width="90%" />
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-xl-10">
-              <h4 class="mb-4">Technical Decisions</h4>
+              <h4 class="mb-4">Activity Processing Sequence</h4>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <!-- Tab panes-->
-                <div class="tab-content">
+                <div class="tab-content system-diagram">
                   <p>
-                    Having researched through different technologies and
-                    methodologies, balancing between their benefits and
-                    drawbacks, we drew our final conclusions on how AvaBot was
-                    to be made up.
+                    AvaBot communicates with users by using activity objects,
+                    the sequence diagram below shows how it works. Some concepts
+                    from the Bot Framework SDK could aid in the understanding
+                    the user-bot communication mechanism:
                   </p>
                   <div class="col-xl-12 techtable">
                     <div class="card">
@@ -489,38 +279,42 @@
                           <table class="table table-hover mb-0 text-md-nowrap">
                             <thead>
                               <tr>
-                                <th>Tech</th>
-                                <th>Decision</th>
+                                <th>term</th>
+                                <th>definition</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <th scope="row">Bot Framework</th>
-                                <td>Microsoft Bot Framework</td>
+                                <th scope="row">Activity</th>
+                                <td>
+                                  an activity is every interaction between the
+                                  user (or a channel) and the bot.
+                                </td>
                               </tr>
                               <tr>
-                                <th scope="row">Language</th>
-                                <td>Node.js & Python</td>
+                                <th scope="row">Turn</th>
+                                <td>
+                                  a turn consists of the user's incoming
+                                  activity to the bot and any activity the bot
+                                  sends back to the user as an immediate
+                                  response.
+                                </td>
                               </tr>
                               <tr>
-                                <th scope="row">External API</th>
-                                <td>Azure Form Recognizer</td>
+                                <th scope="row">Adapter</th>
+                                <td>
+                                  the adapter has a process activity method for
+                                  starting a turn, it also formats and sends
+                                  response activities.
+                                </td>
                               </tr>
                               <tr>
-                                <th scope="row">External Tool</th>
-                                <td>Azure QnA Maker</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Doc-Summary</th>
-                                <td>TextRank Algorithm</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Doc-Query</th>
-                                <td>QA system based on free text</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Image-Recognition</th>
-                                <td>OCR</td>
+                                <th scope="row">TurnContext</th>
+                                <td>
+                                  the turn context object provides information
+                                  about the activity needed to process the
+                                  activity.
+                                </td>
                               </tr>
                             </tbody>
                           </table>
@@ -528,6 +322,52 @@
                       </div>
                     </div>
                   </div>
+                  <p>
+                    <br />
+                    Activities arrive at the bot from the Bot Framework Service
+                    via an HTTP POST request. Activities sent from the bot to
+                    the channel are sent on a separate HTTP POST, both with a
+                    200 HTTP status code. In the diagram, the bot replied to the
+                    “hi” with another message activity containing “hi” as well.
+                    The activity is carried as JSON in the HTTP POST body. This
+                    JSON is deserialized to create the activity object that is
+                    then handed to the adapter through its process
+                    activity method. On receiving the activity, the adapter
+                    creates a turn context and calls the middleware. The turn
+                    context provides send, update, delete activity response
+                    methods for the bot to send outbound activities in response
+                    to an inbound activity. 
+                  </p>
+                  <a href="images/seq.png" class="image-popup">
+                    <div class="gallery-image">
+                      <img src="images/seq.png" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <h4 class="mb-4">DialogueFlow Diagram</h4>
+              <!-- Bootstrap tabs-->
+              <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
+                <!-- Nav tabs-->
+                <!-- Tab panes-->
+                <div class="tab-content system-diagram">
+                  <p>
+                    AvaBot is born with multiple features, it is thus necessary
+                    to organize a reasonable way how users can choose to utilize
+                    its different functionalities. AvaBot’s dialogue flow was
+                    deliberately designed to make its communications with people
+                    as effective, as intuitive, as little of resistance as
+                    possible.
+                  </p>
+                  <a href="images/dialog.png" class="image-popup">
+                    <div class="gallery-image">
+                      <img src="images/dialog.png" />
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>

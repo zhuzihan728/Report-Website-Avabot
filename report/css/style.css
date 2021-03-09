@@ -6869,3 +6869,7 @@ footer .widget_title {
     padding-left: 100px;
   }
 }
+/** system design **/
+.system-diagram .gallery-image img{
+  margin: 0 0;
+}
