@@ -238,6 +238,7 @@ li {
 .auto-container {
   position: static;
   max-width: 1210px;
+  max-height: 50px;
   padding: 0px 20px;
   margin: 0 auto;
 }
@@ -4537,7 +4538,7 @@ ul.custom-flex {
 .tab-content .gallery-image img {
   width: 100%;
   display: block;
-  margin:20px auto -70px;
+  margin:20px auto 0;
   
 }
 
@@ -5074,9 +5075,10 @@ ul.custom-flex {
 }
 mark,
 .mark {
-  padding: 3px 5px;
-  color: #ffffff;
-  background: #3375ec;
+  padding: 3px 3px;
+  color: #4f4c47;
+  background: #ffffff;
+  font-style: italic;
 }
 .text-block > * {
   margin-left: 0.125em;
@@ -6872,4 +6874,19 @@ footer .widget_title {
 /** system design **/
 .system-diagram .gallery-image img{
   margin: 0 0;
+}
+.firstpy img {
+  position: relative;
+  bottom:12px;
+}
+
+.formula{display: flex;align-items: center}
+
+.onlycode img{
+  display: block;
+  margin: 0 auto;
+}
+.botsample1 img{
+  display: block;
+  margin: 50px auto;
 }
