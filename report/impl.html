@@ -543,7 +543,6 @@
                       </div>
                     </div>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -637,6 +636,103 @@ Before the summarization, the document is pre-processed with text split into sen
                   <p>
                     <br />The sentences are matched with their corresponding ranks, where top-ranked ones are displayed to users. The number of sentences to be displayed is heuristically set to be proportional to the document length with the upper limit at 20.
                   </p>
+                  <div class="row row-no-gutter">
+                      <div class="col-12 onlycode">
+                        <img src="images/sample4.png" width="750px"/>
+                      </div>
+                  </div>
+                  <p><br><br><br></p>
+              </div>
+            </div>
+          </div>
+          <!---->>
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <h4 class="mb-4">Table & Image Recognition Implementation</h4>
+              <!-- Bootstrap tabs-->
+              <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
+                <!-- Nav tabs-->
+                <!-- Tab panes-->
+                <div class="tab-content">
+                  <h5>Tools & Dependencies<br /><br /></h5>
+                  <div class="row row-no-gutter">
+                    <div class="col-6">
+                      <img src="images/python.png" width="200" />
+                      <p>
+                      <br>
+                        The table & image-recognition function was written in python.
+                      </p>
+                    </div>
+                    <div class="col-6">
+                      <img src="images/azurefr.png" width="90" />
+                      <p>
+                        <br />Azure Form Recognizer API was used to recognize forms from documents and images.í
+                      </p>
+                    </div>
+                  </div>
+                  <h5><br /><br />Impl. Overview</h5>
+                  <p>
+                   Among all types of images, we have particularly focused on the business-card model for now since it is one of the most commonly used image types for company employees. Here thus lifted the implementation for it as the example.
+                  </p>
+                  <p>1. configure the Form Recognizer client
+                  </p>
+                  <p>EndPoint and credential key are provided to establish a connection to the Form Recognizer service.</p>
+                  <div>
+                    <pre>
+                      <code class="lang-python">
+                  form_recognizer_client = FormRecognizerClient(ENDPOINT, AzureKeyCredential(KEY))
+                      </code>
+                    </pre>
+                  </div>
+                  <p><br />2. get the recognition results</p>
+                  <p>
+                    The recognition results for an image of a certain model is obtained by calling the corresponding recognizing method, in this case, <mark>form_recognizer_client.begin_recognize_business_cards()</mark> is called. Having secured the recognition results, all the possible fields are iterated by using <mark>business_card.fields.get(INFO_FIELD)</mark>, where available ones are collected, reformatted and returned.</p>
+                  <div>
+                    <pre>
+                      <code class="lang-python">
+                  def process(file_path):
+                    with open(file_path, "rb") as card:
+                      poller = form_recognizer_client.begin_recognize_business_cards(business_card=card, locale="en-GB")
+                      business_cards = poller.result()
+                    extractedInfo = []
+                    ...
+                    contact_names = business_card.fields.get("ContactNames")
+                    if contact_names:
+                      for contact_name in contact_names.value:
+                        extractedInfo.append("Contact First Name: {}\n".format(contact_name.value["FirstName"].value))
+                        extractedInfo.append("Contact First Name: {}\n".format(contact_name.value["LastName"].value))
+                    company_names = business_card.fields.get("CompanyNames")
+                    if company_names:
+                      ...
+                    ...
+
+                    return extractedInfo
+                      </code>
+                    </pre>
+                  </div>
+                  <p><br />3. connect to AvaBot via http requests</p>
+                  <p>
+                    Every time a request is sent from AvaBot with the document provided by the user to the python function, which was deployed on Azure cloud, the <mark>main()</mark> method will generate and give back the recognition result in response.
+                  </p>
+                      <div>
+                        <pre>
+                        <code>
+                  def main(req: func.HttpRequest) -> func.HttpResponse:
+                    file = req.files.get("file")
+                    ...
+                    result = recogBusinessCard.process(file_path)
+                    result_json = json.dumps(result)
+                    return func.HttpResponse(result_json)
+                          </code>
+                        </pre>
+                      </div>
+                    <p>Here shows the demo of user requesting recognition of information from a business card: </p>
+                    <div class="row row-no-gutter">
+                      <div class="col-12 onlycode">
+                        <img src="images/sample5.png" width="950px"/>
+                      </div>
+                    </div>  
+                </div>
               </div>
             </div>
           </div>
