@@ -173,7 +173,11 @@
                         </ul>
                       </li>
                       <li class="dropdown">
-                        <a href="javascript:void(0)">testing</a>
+                        <a
+                          href="javascript:void(0)"
+                          onclick="window.open('test.html','_self')"
+                          >Testing</a
+                        >
                         <ul>
                           <li><a href="blog.html">Blog</a></li>
                           <li><a href="blog-detail.html">Blog Detail</a></li>
@@ -307,13 +311,13 @@
                   </div>
                   <p><br />2. how AvaBot interacts with user</p>
                   <p>
-                    AvaBot implements the bot handler class, <mark>ActivityHandler</mark>,
+                    AvaBot implements the bot handler class, <code>ActivityHandler</code>,
                     which uses an event emitter and listener pattern. It has two
-                    listener methods, the <mark>onMessage()</mark> registers a listener
+                    listener methods, the <code>onMessage()</code> registers a listener
                     in response to messages and calls the run method of the
                     bot’s dialog to start or continue the dialog, the
-                    <mark>onMembersAdded()</mark> listener is active when a first member joins
-                    the conversation. Each method ends by calling <mark>next()</mark> to
+                    <code>onMembersAdded()</code> listener is active when a first member joins
+                    the conversation. Each method ends by calling <code>next()</code> to
                     ensure that the next listener is run.
                   </p>
                   <div>
@@ -349,9 +353,9 @@
                     needs and serve their demands. It is implemented with
                     multi-turn and multi-branch conversation flows by creating
                     prompts and calling them from waterfall dialogs. It contains
-                    3 dialogs, the <mark>MainDialog</mark> for users to choose which feature
+                    3 dialogs, the <code>MainDialog</code> for users to choose which feature
                     to use and ask for necessary document uploading, the
-                    <mark>AnswerDialog</mark> to do QnA, and the <mark>DocDialog</mark> for users to
+                    <code>AnswerDialog</code> to do QnA, and the <code>DocDialog</code> for users to
                     obtain document processing results. Here is a piece of code
                     from the mainDialog class, showing how bot’s dialog jumps
                     from one step to the next:
@@ -433,10 +437,10 @@
                     TextSum API will return the summary result, QA-system API
                     will return the pre-processing status, and Form-Recog API
                     will return table data. To optimize the overall processing
-                    time, we applied <mark>Promised.allSettled()</mark> method, which allows
+                    time, we applied <code>Promised.allSettled()</code> method, which allows
                     the requests to be sent simultaneously and halts the dialog
                     until it has successfully obtained all the three results
-                    regardless of status (Other similar methods like <mark>Axios.all()</mark>
+                    regardless of status (Other similar methods like <code>Axios.all()</code>
                     would fail if any of the request failed).
                   </p>
                   <div>
@@ -470,7 +474,7 @@
                     </pre>
                   </div>
                   <p>
-                    The processing results will be directed to <mark>DocDialog</mark> as the dialog branch begins, when the user will be asked whether
+                    The processing results will be directed to <code>DocDialog</code> as the dialog branch begins, when the user will be asked whether
                     they want doc-summary, table data or to do doc-query. The
                     advantage of performing the requests before actually letting
                     users to choose which document processing features they
@@ -502,7 +506,7 @@
                     pages, support websites, product manuals, etc.. In
                     AnswerDialog, AvaBot uses the connection information
                     provided by the .env file to establish a connection to the
-                    QnA Maker service: <mark>this.qnaMaker</mark>.
+                    QnA Maker service: <code>this.qnaMaker</code>.
                   </p>
                   <pre><code>
                   class AnswerDialog extends ComponentDialog {
@@ -686,7 +690,7 @@ Before the summarization, the document is pre-processed with text split into sen
                   </div>
                   <p><br />2. get the recognition results</p>
                   <p>
-                    The recognition results for an image of a certain model is obtained by calling the corresponding recognizing method, in this case, <mark>form_recognizer_client.begin_recognize_business_cards()</mark> is called. Having secured the recognition results, all the possible fields are iterated by using <mark>business_card.fields.get(INFO_FIELD)</mark>, where available ones are collected, reformatted and returned.</p>
+                    The recognition results for an image of a certain model is obtained by calling the corresponding recognizing method, in this case, <code>form_recognizer_client.begin_recognize_business_cards()</code> is called. Having secured the recognition results, all the possible fields are iterated by using <code>business_card.fields.get(INFO_FIELD)</code>, where available ones are collected, reformatted and returned.</p>
                   <div>
                     <pre>
                       <code class="lang-python">
@@ -712,7 +716,7 @@ Before the summarization, the document is pre-processed with text split into sen
                   </div>
                   <p><br />3. connect to AvaBot via http requests</p>
                   <p>
-                    Every time a request is sent from AvaBot with the document provided by the user to the python function, which was deployed on Azure cloud, the <mark>main()</mark> method will generate and give back the recognition result in response.
+                    Every time a request is sent from AvaBot with the document provided by the user to the python function, which was deployed on Azure cloud, the <code>main()</code> method will generate and give back the recognition result in response.
                   </p>
                       <div>
                         <pre>
