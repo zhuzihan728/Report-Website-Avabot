@@ -741,7 +741,170 @@ Before the summarization, the document is pre-processed with text split into sen
             </div>
           </div>
         </div>
+
+
+      <!-- QA system-->
+      <!---->
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <h4 class="mb-4">Question-Answering System</h4>
+              <!-- Bootstrap tabs-->
+              <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
+                <!-- Nav tabs-->
+                <!-- Tab panes-->
+                <div class="tab-content">
+                  <h5>Tools & Dependencies<br /><br /></h5>
+                  <div class="row row-no-gutter">
+                    <div class="col-4">
+                      <img src="images/haystack.png" width="200" />
+                      <p>
+                      <br>
+                        A open domain QA system framework
+                      </p>
+                    </div>
+                    <div class="col-4">
+                      <img src="images/gunicorn.png" width="100" />
+                      <p>
+                        <br />An application server to host the system
+                      </p>
+                    </div>
+                    <div class="col-4">
+                      <img src="images/nginx.png" width="100" />
+                      <p>
+                        <br/>Reverse Proxy to buffer the file transfering
+                      </p>
+                    </div>
+                  </div>
+                  <h5><br /><br />Impl. Overview</h5>
+                  <p>
+                   The implementation of the QA system is separated into two parts: document retrieval and natural-language question processing. 
+                  </p>
+                  <p><b>Document retrieval<br></b>
+                  </p>
+                  <p>When a POST request arrives, the program first pre-processes the text.<br>
+ The preprocessing includes <br>
+1.  Extracting the text from the file attached with the request to the Document object accepted by Haystack<br>
+2.  Cleaning the text by removing numeric tables, header and footers that are repeated on each page, normalizing empty lines and white spaces<br>
+3.  Splitting the text into smaller chunks to optimize retrieval 
+</p>
+                  <div>
+                    <pre>
+                      <code class="lang-python">
+def file_upload(file):
+    try:
+        file_path = '/tmp/' + file.name + '_tmp'
+        with open(file_path, "wb") as buffer:
+            buffer.write(file.read())
+
+        if file.filename.split(".")[-1].lower() == "pdf":
+            pdf_converter = PDFToTextConverter(
+                remove_numeric_tables=True, valid_languages=["en"]
+            )
+            document = pdf_converter.convert(file_path)
+        elif file.filename.split(".")[-1].lower() == "txt":
+            txt_converter = TextConverter(
+                remove_numeric_tables=True, valid_languages=["en"],
+            )
+            document = txt_converter.convert(file_path)
+        else:
+            raise HTTPException(status_code=415, detail=f"Only .pdf and .txt file formats are supported.")
+
+        document = {TEXT_FIELD_NAME: document["text"], "name": file.filename}
+
+        preprocessor = PreProcessor(
+            clean_whitespace=REMOVE_WHITESPACE,
+            clean_header_footer=REMOVE_HEADER_FOOTER,
+            clean_empty_lines=REMOVE_EMPTY_LINES,
+            split_by=SPLIT_BY,
+            split_length=SPLIT_LENGTH,
+            split_overlap=SPLIT_OVERLAP,
+            split_respect_sentence_boundary=SPLIT_RESPECT_SENTENCE_BOUNDARY,
+        )
+
+        documents = preprocessor.process(document)
+                      </code>
+                    </pre>
+                  </div>
+                  <p><br />After that, the document is sent to the document store for indexing and generating a pipeline. Pipeline sticks powerful building blocks together, which are retriever and reader in our case. We keep this object in the memory which will find answers when questions are given.  The QA model <code>deepset/roberta-base-squad2</code> is used here as it has a quick retrieving speed compared with the others. (I also listed several alternatives in the comment) We sacrifice a little accuracy to have a fast processing speed. Also, as we don't have a GPU on our virtual machine so we have turn the option off. This option will tell pytorch to stop using GPU acceleration.<br></p>
+                    
+                  <div>
+                    <pre>
+                      <code class="lang-python">
+    retriever = ElasticsearchRetriever(document_store=document_store)
+    reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=False, context_window_size=500)
+    p = ExtractiveQAPipeline(reader, retriever)
+                      </code>
+                    </pre>
+                  </div>
+ 
+                  <p><br /><b> natural-language question processing<br> </b></p>
+                  <p>
+                    When a GET request is sent to the system, the query will be extracted from the http arguments. Key extraction is performed to identify the question type. "When", "Who","What" will refer to time, person and description respectively. This part is conducted by Haystack framework, what we do is simply send the question to the pipe and return back a few top-rated answers. <br>
+Here is the pipeline structure: 
+
+                  </p>
+                  <div class="row row-no-gutter">
+                    <div class="col-11">
+                        <img src="images/pipeline_struct.png" width="300" />
+                    </div>
+                  </div>
+                      
+              <p><b> <br>Elasticseach<br> </b></p>
+              <p>There are several options to start the ES on the machine. We run it by using docker image as a daemon as it is easy to configure. <br></p>
+
+              <div>
+                    <pre>
+                      <code class="lang-bash">
+    docker run -d -p 9200:9200 -e "discovery.type=single-node" elasticsearch:7.6.2
+                      </code>
+                    </pre>
+                  </div>
+              </div>
+
+              <p><b> Nginx & Gunicorn<br> </b></p>
+              <p>Gunicorn is using bio concurrency model, which means the worker process will be blocked when a file with large size is sent. As our machine has one-core only CPU, we set the number of worker processes to 2. Hence, it is likely to timeout a connection when several TCP connections flood in together, just because the worker processes are waiting for receiving large files. This is actually a famous disadvantage of Gunicorn.<br></p>
+
+              <div>
+                    <pre>
+                      <code class="lang-python">
+bind = "0.0.0.0:5000"
+timeout = 120
+loglevel = "debug"
+preload = True
+workers = 2
+                      </code>
+                    </pre>
+              </div>
+              <p><br>We then added a reverse proxy in front of our application server to get rid of this problem. The buffering reverse proxy will wait until it gets the entire request, then it will pass this request to the application server, which will just process it and deliver the response back to the reverse proxy, being free to receive new requests. <br></p>
+              
+              <div>
+                    <pre>
+                      <code class="lang-bash">
+server {
+    listen 80;
+    server_name {DOMAIN_NAME};
+
+    location / {
+        include proxy_params;
+        proxy_pass {FILE_PATH};
+    }
+}
+                      </code>
+                    </pre>
+              </div>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
       </section>
+
+      
+
+
       <!-- Start Footer Area -->
       <footer class="footer_dark">
         <div class="footer_top">
