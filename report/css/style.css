@@ -1739,12 +1739,14 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .wave {
 
 .white_pad {
   position: relative;
-  margin-top: 20px;
+  margin-top: 55px;
+  margin-left: 120px;
+
 }
 
 .white_pad img {
   position: absolute;
-  right: -150px;
+  width:320px
 }
 
 .top_left_cont {
