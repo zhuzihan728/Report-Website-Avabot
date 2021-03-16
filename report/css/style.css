@@ -6917,7 +6917,11 @@ footer .widget_title {
 
 .test-case span {
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
+}
+
+.tester-info i {
+  color: #000000 !important;
 }
 
 .feedback tbody td:first-of-type {
@@ -7034,4 +7038,21 @@ footer .widget_title {
   color:#000 !important;
 }
 
+.mos-evaluate {
+  font-size: small;
+  padding-top: 20px;
+}
+.mos-evaluate thead tr th {
+  font-weight:600;
+}
 
+
+.bug-list tbody td:nth-child(2) {
+  text-align: left;
+}
+
+.qa-sys p span {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 50px;
+}
