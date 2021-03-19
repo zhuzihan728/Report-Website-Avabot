@@ -2190,30 +2190,13 @@ a.read_more2:hover {
 ================================================
 */
 .abstract-sec {
-  margin: 250px 0 0px;
+  margin: 250px 0 0;
   z-index: 60;
+  padding-bottom: 50px;
 }
 
-.abstract-sec .sec-title {
-  text-align: center;
-  margin: 0 -80px;
-}
-.abstract-sec .sec-title h2::before {
-  content: "";
-  border: 1px solid #8400fc;
-  width: 25px;
-  position: absolute;
-  left: -40px;
-  top: 19px;
-}
-.abstract-sec .sec-title h2 span::before {
-  content: "";
-  border: 1px solid #8400fc;
-  width: 25px;
-  position: absolute;
-  right: -40px;
-  top: 19px;
-}
+
+
 .abstract-sec .sec-title h2 {
   font-size: 32px;
   color: #000000;
@@ -2224,22 +2207,7 @@ a.read_more2:hover {
   padding-bottom: 25px;
   font-family: "Raleway";
 }
-.abstract-sec .sec-title h2 span::after {
-  content: "";
-  border: 1px solid #8400fc;
-  height: 20px;
-  position: absolute;
-  right: -15px;
-  top: 10px;
-}
-.abstract-sec .sec-title h2::after {
-  content: "";
-  border: 1px solid #8400fc;
-  height: 20px;
-  position: absolute;
-  left: -15px;
-  top: 10px;
-}
+
 .abstract-sec .sec-title p {
   font-size: medium;
   text-align: start;
@@ -2304,7 +2272,7 @@ a.read_more2:hover {
 */
 .about-sec {
   top: -80px;
-  padding: 0 0 380px;
+  padding: 0 0 305px;
   position: relative;
 }
 .about-sec.inner-cotent-wrapper {
@@ -2497,48 +2465,42 @@ a.read_more2:hover {
   bottom: -26vw;
   display: none;
 }
-.fun-facts-area .col-lg-3:last-child .single-fun-fact {
-  border: none;
-}
-.fun-facts-area .col-lg-3:first-child .single-fun-fact {
-  border: none;
+.fun-facts-area .col-lg-4:last-child .single-fun-fact {
+	border-right: none;
 }
 .single-fun-fact {
-  margin-left: 170px;
-  margin-right: 170px;
-  width: 300px;
-  text-align: center;
-  position: relative;
-  margin-bottom: 50px;
-  border-right: 1px dashed #b5b8cc;
-  border-left: 1px dashed #b5b8cc;
+	text-align: center;
+	position: relative;
+	margin-bottom: 50px;
+	border-right: 1px dashed #b5b8cc;
 }
 .single-fun-fact h3 {
-  position: relative;
-  color: #ff6015;
-  margin-top: 5px;
-  line-height: 1;
-  margin-bottom: 0;
-  font-size: 50px;
-  font-weight: 400;
+	position: relative;
+	color: #ff6015;
+	margin-top: 5px;
+	line-height: 1;
+	margin-bottom: 0;
+	font-size: 50px;
+	font-weight: 400;
 }
 .single-fun-fact h3 .sign-icon {
-  display: inline-block;
-  font-size: 46px;
-  position: relative;
-  left: -10px;
+	display: inline-block;
+	font-size: 46px;
+	position: relative;
+	left: -10px;
 }
 .single-fun-fact h3 .sign-icon.dolor {
-  position: relative;
-  left: 10px;
+	position: relative;
+	left: 10px;
 }
 .single-fun-fact p {
-  line-height: initial;
-  color: #7a7e9a;
-  margin: 0 0 0 0;
-  font-weight: 400;
-  font-size: 16px;
+	line-height: initial;
+	color: #7a7e9a;
+	margin: 0 0 0 0;
+	font-weight: 400;
+	font-size: 16px;
 }
+
 .fun-facts-bottom-img {
   position: absolute;
   bottom: -1px;
@@ -2553,8 +2515,8 @@ a.read_more2:hover {
 ================================================
 */
 .services-sec {
-  top: -100px;
-  padding: 0 0 100px;
+  top: -50px;
+  padding: 0 0 150px;
 }
 .services-sec .sec-title {
   margin: 0;
@@ -3199,6 +3161,25 @@ span.dolar {
   background: linear-gradient(135deg, #8400fc 0%, #11def4 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8400fc', endColorstr='#11def4', GradientType=1 );
 }
+
+@media (max-width: 750px) {
+  .video {
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+  }
+
+  .video iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+}
+
+
 .testimonials-sec .sec-title h2:before,
 .testimonials-sec .sec-title h2 span:before {
   border: 1px solid #fff;
@@ -6242,14 +6223,14 @@ footer .widget_title {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 827px) and (max-width: 1199px) {
   /** Main Slider **/
   .main-slider .content h2 {
     font-size: 45px;
   }
   /** About Sec **/
   .about-sec {
-    padding: 0 0 260px;
+    padding: 0 0 230px;
   }
 }
 
@@ -6377,12 +6358,13 @@ footer .widget_title {
   /** Fun Facts Area **/
   .single-fun-fact {
     border-right: none;
+    border-left: none;
   }
   .single-fun-fact h3 {
-    font-size: 40px;
+    font-size: 50px;
   }
   .single-fun-fact h3 .sign-icon {
-    font-size: 35px;
+    font-size: 40px;
   }
 }
 
@@ -7046,7 +7028,7 @@ footer .widget_title {
   }
   /** Services Sec **/
   .services-sec {
-    padding-top: 60px;
+    padding-top: 40px;
   }
   /** Fun Facts Area **/
   .fun-facts-area {
