@@ -300,7 +300,7 @@
                           <img src="images/mocha.png" width="150"/>   
                         </div>
                       </div> 
-                      <p>Unit tests were introduced towards Bot class and dialog classes, where all step methods, along with <code>sendReq()</code>, <code>handleAttachment()</code>, <code>promptValidator()</code> methods were covered. <br>Contrary to common sense, dialogs can be standalone from the bot, and thus can get their exclusive methods tested by instantiating the sole dialog objects.</p>                 
+                      <p>Unit tests were introduced towards Bot class and dialog classes, where all step methods, along with <code>sendReq()</code>, <code>handleAttachment()</code>, <code>promptValidator()</code> methods and etc. were covered. <br>Contrary to common sense, dialogs can be standalone from the bot, and thus can get their exclusive methods tested by instantiating the sole dialog objects.</p>                 
                       <pre>
                     <code class="lang-javascript">
 it('tests promptValidatorImage', async () => {
@@ -333,9 +333,7 @@ it('tests promptValidatorImage', async () => {
                     <p>The bot framework SDK provides a test suit for testing the bot, which runs by mocking a client who can interact with the bot under the context of one dialog.</p>      
                     <pre><code class="lang-javascript"> 
 const sut = new MainDialog();
-const client = new DialogTestClient('test', sut);  
-            const client = new DialogTestClient('test', sut);  
-const client = new DialogTestClient('test', sut);  
+const client = new DialogTestClient('test', sut); 
                     </pre>
                     </code>
                     <p>Then the client can send mock messages to the bot by calling sendActivity(), the response from the bot can be obtained as reply.text and asserted whether it is equal to the expected response or not.</p>  
@@ -518,7 +516,7 @@ assert.strictEqual(reply.text, ‘How is it?’)
                           <td>0</td>   
                           <td>4</td>
                           <td>+All tables were extracted
-                              <br>-The data formatting is not very friendly</td>
+                              <br>-The data formatting could be better</td>
                         </tr>
                           <tr>
                           <td>can answer questions about a document with answer context</td>
@@ -528,8 +526,7 @@ assert.strictEqual(reply.text, ‘How is it?’)
                           <td>1</td>   
                           <td>3</td>
                           <td>+Amazing feature, did good job
-                              <br>+can literally ask anything about the document
-                              <br>-sometimes the context is incomplete</td>
+                              <br>+can literally ask anything about the document</td>
                         </tr>
                           <tr>
                           <td>can extract text from images</td>
@@ -580,7 +577,7 @@ assert.strictEqual(reply.text, ‘How is it?’)
               </div>
             </div>
             <h5><br>Conclusion<br></h5>
-            <p>We are glad to see that the test users showed positive attitudes and enthusiasm to AvaBot while they were interacting with the bot and giving the feedbacks. Their comments, both pros and cons, meant a lot to us. Those comments have guided and will be guiding us to further refactoring of AvaBot to make it maturer and more comprehensive for helping more and more people.  </p>
+            <p>We are glad to see that the test users showed positive attitudes and enthusiasm to AvaBot while they were interacting with the bot and giving the feedbacks. Their comments, both pros and cons, meant a lot to us. Those comments have guided and will be guiding us to further refactoring of AvaBot to make it more mature and comprehensive for helping more and more people.  </p>
               </div>
             </div>
           </div>

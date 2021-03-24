@@ -594,7 +594,7 @@ if (qnaResults[0]) {
                   <h5><br /><br />Impl. Overview</h5>
                   <p><br />1. pre-process document</p>
                   <p>
-                    The document-summary feature is implemented by using TextRank algorithm, referred to and originated from Sumy Python Module (<a
+                    The document-summary feature is implemented by using TextRank algorithm, with the code referred to and originated from Sumy Python Module (<a
                       class="link-hover"
                       href="https://github.com/miso-belica"
                       target="_blank"
@@ -647,7 +647,7 @@ Before the summarization, the document is pre-processed with text split into sen
                       </div>
                     </div>
                   <p>
-                    <br />The sentences are matched with their corresponding ranks, where top-ranked ones are displayed to users. The number of sentences to be displayed is heuristically set to be proportional to the document length with the upper limit at 20.
+                    <br />The sentences are matched with their corresponding ranks, where top-ranked ones are displayed to users. The number of sentences to be displayed is heuristically set to be proportional to the document length with the upper limit at 10.
                   </p>
                   <div class="row row-no-gutter">
                       <div class="col-12 onlycode">
@@ -832,7 +832,7 @@ def file_upload(file):
                       </code>
                     </pre>
                   </div>
-                  <p>After that, the document is sent to the document store for indexing and generating a pipeline. Pipeline sticks powerful building blocks together, which are retriever and reader in our case. We keep this object in the memory which will find answers when questions are given.  The QA model <code>deepset/roberta-base-squad2</code> is used here as it has a quick retrieving speed compared with the others. (I also listed several alternatives in the comment) We sacrifice a little accuracy to have a fast processing speed. Also, as we don't have a GPU on our virtual machine so we have turn the option off. This option will tell pytorch to stop using GPU acceleration.<br></p>
+                  <p>After that, the document is sent to the document store for indexing and generating a pipeline. Pipeline sticks powerful building blocks together, which are retriever and reader in our case. We keep this object in the memory which will find answers when questions are given.  The QA model <code>deepset/roberta-base-squad2</code> is used here as it has a quick retrieving speed compared with the others. We sacrifice a little accuracy to have a fast processing speed. Also, as we don't have a GPU on our virtual machine so we have turn the option off. This option will tell pytorch to stop using GPU acceleration.<br></p>
                     
                   <div>
                     <pre>
@@ -845,7 +845,7 @@ p = ExtractiveQAPipeline(reader, retriever)
                   </div>
  
                   <p><br /><span> natural-language question processing<br> </span>
-                    When a GET request is sent to the system, the query will be extracted from the http arguments. Key extraction is performed to identify the question type. "When", "Who","What" will refer to time, person and description respectively. This part is conducted by Haystack framework, what we do is simply send the question to the pipe and return back a few top-rated answers. <br>
+                    When a query is sent to the system, key extraction is performed to identify the question type, where "who", "when", "what" refer to person, time and description respectively. The question will then be directed to the pipe with top-rated answers returned back. <br>
 Here is the pipeline structure: 
 
                   </p>
