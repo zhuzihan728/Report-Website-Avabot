@@ -365,7 +365,57 @@ code {
           : 'default'
     });
   </script>
-<h1 id="avabot-deployment-manual">AvaBot Deployment Manual</h1>
+<h1 id="comp0016202021team8---avabot">COMP0016_2020_21_Team8 - AvaBot</h1>
+<h2 id="overview">Overview</h2>
+<p>Project Title: Avanade2 COVID19 changes</br>
+Team Member: Zihan Zhu, Chaozy Zhu, Davit Mirzoyan</p>
+<h2 id="project-intro"><br>Project Intro</h2>
+<p>Due to the COVID-19 epidemic, most companies have switched to remote working, however, productivity and communication take a hit when employees are new to working from home.<br>
+AvaBot is therefore created to ease the pain, it is a ChatBot assistant that holds rich knowledge base to answer employees' questions about the company's newly induced tools and policies for remote working.<br>
+It is also endowed with AI functionalities, including natural language processing and image recognition, to help employees with documents: to read, analyze, and understand documents for them and thus enhance their productivity.</p>
+<h2 id="system-architecture"><br>System Architecture</h2>
+<p>AvaBot application system consists of several components. <br>
+Users can interact with AvaBot as a REST API on web chat and on multiple applications to which it is channeled.<br>
+The bot source code is deployed to Azure Cloud by using Azure Bot Service. The bot src can be found <a href="./AvabotTeam8-src">./AvabotTeam8-src/</a>.
+<br>
+AvaBot is connected to a QnA Maker with rich knowledge base that allows it to answer a variety of questions. The QnA Maker is configured in <a href="./AvabotTeam8-src/dialogs/answerDialog.js">./AvabotTeam8-src/dialogs/answerDialog.js</a>.<br>
+Document processing functionalities are integrated to AvaBot by APIs. The code of the APIs are in <a href="./textSum">./textSum/</a>, <a href="./QAsystem">./QAsystem/</a>, and <a href="./formRecogFunction">./formRecogFunction/</a>. <br>
+Due to the high complexity and dependency on environment, QA system has been placed to a virtual machine in order to optimize its performance.<br><br>
+Below is the system architecture diagram for AvaBot:<br>
+<img src="../images/system.png" alt="System Architecture Diagram" width="60%">
+<br><br>Below is the dialog flow diagram for AvaBot:<br>
+<img src="../images/dialog1.png" alt="Flow Diagram" width="60%"></p>
+<h3 id="brbrproject-tree"><br>Project tree</h3>
+<p>Below is the project tree showing the main files and their uses in the repository:</p>
+<pre class="hljs"><code><div>.
+├── AvabotTeam8-src/       # The bot source code
+│   ├── .vscode            # VS Code configuration for bot development
+│   ├── bots/
+│       └── avabot.js      # The bot class
+│   ├── coverage/          # Testing coverage report
+│   └── dialogs/           # The bot's dialog classes
+│       └── mainDialog.js
+│       └── ...
+│   ├── node_modules/      # Node module dependencies for the project
+│   ├── PostDeployScripts/ # Bot Deployment Scripts for setting continuos deployment
+│   ├── test/              # Unit tests and integration tests for the bot
+│   ├── .env               # environment file for connecting to azure services
+│   ├── index.js           # App entry point
+│   ├── package.json       # Node.js package configuration file
+│   ├── web.config         # Configuration file if using iisnode behind Express
+│   └── ...
+├── docs/                  # Documentation files
+├── formRecogFunction/     # Src and documents for Form Recognizer API
+├── QAsystem/              # Src and documents for QA system API
+├── testAPI_example/       # Demo for calling APIs in python
+├── textSum/               # Src and documents for Text Summarization API
+├── WebBrowserBot/         # Demo for running AvaBot on a web browser
+├── AvaBot.bot             # Bot configuration file for running the bot on MS bot emulator
+├── LICENCE                # License for the project
+└── *.md                   # Project documentation files
+</div></code></pre>
+<h2 id="deployment"><br>Deployment</h2>
+<h3 id="avabot-deployment-manual">AvaBot Deployment Manual</h3>
 <p>AvaBot has been created using <a href="https://dev.botframework.com">MS Bot Framework</a>, it can</p>
 <ul>
 <li>Answer general questions, Avanade-related questions, and UCL-related questions</li>
@@ -374,15 +424,15 @@ code {
 <li>Answer questions about a document</li>
 <li>Recognize images of business-card pattern</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li><a href="https://git-scm.com/">Git</a></li>
 <li><a href="https://nodejs.org">Node.js</a></li>
 <li><a href="https://ngrok.com/">ngrok</a></li>
 <li><a href="https://github.com/microsoft/botframework-emulator">Bot Framework Emulator</a></li>
 </ul>
-<h2 id="build-and-run">Build and Run</h2>
-<h3 id="configure-bot-framework-emulator">Configure Bot Framework Emulator</h3>
+<h3 id="build-and-run">Build and Run</h3>
+<h4 id="configure-bot-framework-emulator">Configure Bot Framework Emulator</h4>
 <ul>
 <li>Install the latest Bot Framework Emulator from <a href="https://github.com/Microsoft/BotFramework-Emulator/releases">here</a></li>
 <li>Launch Bot Framework Emulator</li>
@@ -391,11 +441,11 @@ code {
 <li>Tick <code>Bypass ngrok for local address</code> box</li>
 <li>Tick <code>Run ngrok when the Emulator starts up</code> box</li>
 </ul>
-<h3 id="run-the-bot">Run the bot</h3>
+<h4 id="run-the-bot">Run the bot</h4>
 <ul>
 <li>
 <p>Clone the repository</p>
-<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/UCLComputerScience/COMP0016_2020_21_Team8.git
+<pre class="hljs"><code><div>git clone https://github.com/UCLComputerScience/COMP0016_2020_21_Team8.git
 </div></code></pre>
 </li>
 <li>
@@ -403,7 +453,7 @@ code {
 </li>
 <li>
 <p>In a terminal, navigate to <code>AvabotTeam8-src</code></p>
-<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> AvabotTeam8-src
+<pre class="hljs"><code><div>cd AvabotTeam8-src
 </div></code></pre>
 </li>
 <li>
@@ -426,11 +476,11 @@ code {
 <p>Browse and choose <code>AvaBot.bot</code> in the <code>COMP0016_2020_21_Team8</code> repository</p>
 </li>
 </ul>
-<h2 id="test">Test</h2>
+<h3 id="test">Test</h3>
 <p>The testing of the project uses <a href="https://github.com/mochajs/mocha">mocha</a>, <a href="https://github.com/chaijs/chai">chai</a>, and MS <a href="https://www.npmjs.com/package/botbuilder-testing">botbuilder-testing</a> package. Make sure you have installed them by <code>npm install</code>.</p>
 <ul>
 <li>In a terminal, navigate to <code>AvabotTeam8-src</code></li>
-<li>Run test by<pre class="hljs"><code><div>npm run <span class="hljs-built_in">test</span>
+<li>Run test by<pre class="hljs"><code><div>npm run test
 </div></code></pre>
 </li>
 <li>Run test with coverage by<pre class="hljs"><code><div>npm run cover
@@ -441,9 +491,25 @@ code {
 </li>
 </ul>
 <p>Note: for passing all the tests, make sure the APIs used by the bot are working properly.</p>
-<h2 id="development">Development</h2>
+<h3 id="further-development">Further Development</h3>
 <p>To develop your own bot application, see <a href="https://azure.microsoft.com/en-gb/services/bot-services/">Azure Bot Service</a> for creating Web App Bot resource and configure the <code>AvabotTeam8-src/.env</code> file with your AppId and AppPassword. </br>
 To learn more about deploying a bot to Azure, see <a href="https://aka.ms/azuredeployment">Deploy your bot to Azure</a> for a complete list of deployment instructions.</p>
+<h2 id="usage"><br>Usage</h2>
+<p>AvaBot is hosted on the Azure Bot Service. The service defines a REST API and an activity protocol for how bots and channels or users can interact. AvaBot's messaging endpoint is at <code>https://avabotteam8.azurewebsites.net/api/messages</code>.<br>
+Demo for using the bot on a web browser can be found in <a href="./WebBrowserBot">./WebBrowserBot/</a>.</p>
+<h2 id="showcase"><br>ShowCase</h2>
+<h3 id="1-avabot-greets-the-userbrbr">1. AvaBot greets the user:<br><br></h3>
+<p><img src="../images/sample1.png" alt="Sample one" width="60%"><br></p>
+<h3 id="brbr2-avabot-summarizes-a-documentbrbr"><br><br>2. AvaBot summarizes a document:<br><br></h3>
+<p><img src="../images/sample4.png" alt="Sample two" width="60%"><br></p>
+<h3 id="brbr3-avabot-recognizes-an-imagebrbr"><br><br>3. AvaBot recognizes an image:<br><br></h3>
+<p><img src="../images/sample5.png" alt="Sample three" width="60%"></p>
+<h2 id="appendix"><br>Appendix</h2>
+<ul>
+<li><a href="https://chaozyhaha.wordpress.com/blog/">Development Blog</a></li>
+<li><a href="http://students.cs.ucl.ac.uk/2020/group8/index.html">Project Website</a></li>
+<li><a href="http://students.cs.ucl.ac.uk/2020/group8/usermn.html">User Manual</a></li>
+</ul>
 
 </body>
 </html>
